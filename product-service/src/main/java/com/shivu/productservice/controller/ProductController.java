@@ -44,8 +44,8 @@ public class ProductController {
       
     }
     @PostMapping
-    public void createProduct(@RequestBody Product product){
-        productservice.createProduct(product);
+    public Product createProduct(@RequestBody Product product){
+        return productservice.createProduct(product);
     }
 
     @PutMapping

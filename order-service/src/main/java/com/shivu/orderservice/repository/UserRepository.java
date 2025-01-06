@@ -11,7 +11,7 @@ import com.shivu.orderservice.model.Users;
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
-     Optional<Users> findByEmail(String email);
+     
     
 }
 

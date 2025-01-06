@@ -27,8 +27,17 @@ public class OrderService {
     ProductRepository productRepository;
    
     public Orders placeOrder(OrderRequest orderRequest){
+    	
+    	// user email
+    	// product id and quantity
+    	
+    	
+    	
+    	
+    	
         System.out.println("called service method"+orderRequest.getEmail_id());
-        Users users = restTemplate.getForObject("http://localhost:9393/api/users/email/"+orderRequest.getEmail_id(),Users.class);       
+        Users users = restTemplate.getForObject("http://localhost:9393/api/users/email/"+orderRequest.getEmail_id(),
+        		Users.class);       
         System.out.println(users);
         Users user1 = userRepository.save(users);
         float totalCost=0;
