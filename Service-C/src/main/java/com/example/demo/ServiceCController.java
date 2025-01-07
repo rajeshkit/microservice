@@ -16,7 +16,10 @@ import com.netflix.discovery.converters.Auto;
 public class ServiceCController {
 	
 	@Autowired
-	private RestTemplate restTemplate;
+	private ServiceAFeignClient serviceAFeignClient;
+	
+	@Autowired
+	private ServiceBFeignClient serviceBFeignClient;
 	
 	@Value("${spring.application.name}")
 	public String appName;
@@ -27,10 +30,12 @@ public class ServiceCController {
 	@GetMapping
 	public String getMethodName() {
 		//internally it going to call service-A, service-B
-		ResponseEntity<String> responseA=restTemplate.exchange("http://SERVICE-A/servicea/api",HttpMethod.GET, null,String.class);
-		String data = responseA.getBody();
-		ResponseEntity<String> responseB=restTemplate.exchange("http://SERVICE-B/serviceb/api",HttpMethod.GET, null,String.class);
-		String data1 = responseB.getBody();
+	//	ResponseEntity<String> responseA=restTemplate.exchange("http://SERVICE-A/servicea/api",HttpMethod.GET, null,String.class);
+		String data = serviceAFeignClient.call();
+	//	String data = responseA.getBody();
+		//ResponseEntity<String> responseB=restTemplate.exchange("http://SERVICE-B/serviceb/api",HttpMethod.GET, null,String.class);
+//		//String data1 = responseB.getBody();
+		String data1=serviceBFeignClient.call();
 		return appName+":"+port+ data1+data;
 	}
 	
