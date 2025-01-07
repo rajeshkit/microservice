@@ -1,6 +1,5 @@
 package com.shivu.orderservice.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +29,7 @@ public class OrderService {
     	
     	// user email
     	// product id and quantity
-    	
-    	
-    	
-    	
+   	   	
     	
         System.out.println("called service method"+orderRequest.getEmail_id());
         Users users = restTemplate.getForObject("http://localhost:9393/api/users/email/"+orderRequest.getEmail_id(),

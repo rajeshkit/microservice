@@ -1,18 +1,15 @@
-package com.shivu.orderservice;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class OrderServiceApplication {
+public class ServiceAApplication {
 
 	public static void main(String[] args) {
-		
-		SpringApplication.run(OrderServiceApplication.class, args);
+		SpringApplication.run(ServiceAApplication.class, args);
 	}
-	
 
 }
